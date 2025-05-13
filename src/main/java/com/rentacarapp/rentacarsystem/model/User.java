@@ -13,7 +13,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "UserID")
-    private Long userID;
+    private long userID; // VetApp de long  ben önceden Long yapmıştım
 
     @Column(name = "Username", nullable = false, unique = true)
     private String username;
@@ -21,10 +21,10 @@ public class User {
     @Column(name = "PasswordHash", nullable = false, length = 255)
     private String passwordHash;
 
-    @Column(name = "Email", length = 100)
+    @Column(name = "Email")
     private String email;
 
-    @Column(name = "Phone", length = 20)
+    @Column(name = "Phone")
     private String phone;
 
     @Column(name = "RoleID")

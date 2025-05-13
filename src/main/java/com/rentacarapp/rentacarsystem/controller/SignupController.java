@@ -2,19 +2,23 @@ package com.rentacarapp.rentacarsystem.controller;
 
 import com.rentacarapp.rentacarsystem.model.User;
 import com.rentacarapp.rentacarsystem.service.UserService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class SignupController {
 
     private final UserService userService;
+    // password hashleme gelecek
+    private final BCryptPasswordEncoder passwordEncoder;
 
-    public SignupController(UserService userService) {
+
+
+    public SignupController(UserService userService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("/signup")
@@ -31,7 +35,7 @@ public class SignupController {
         try {
             User user = new User();
             user.setUsername(username);
-            user.setPasswordHash(password);
+            user.setPasswordHash(passwordEncoder.encode(password));
             user.setEmail(email);
             user.setPhone(phone);
             user.setRoleId(1);
