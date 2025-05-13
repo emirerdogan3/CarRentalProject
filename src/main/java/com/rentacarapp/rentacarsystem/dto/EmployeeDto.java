@@ -10,12 +10,16 @@ import java.math.BigDecimal;
 public class EmployeeDto {
 
     private Long employeeID;
-    private Long userID;
+    //private Long userID;
     private String firstName;
     private String lastName;
     private BigDecimal salary;
     private Integer shiftCount;
     private String positionTitle;
+
     private Long branchID;
-    private String branchName; // İsteğe bağlı: branch bilgisini göstermek için
+    private String branch; // İsteğe bağlı: branch bilgisini göstermek için
+    private String branchName;
+
+    private String username;
 }

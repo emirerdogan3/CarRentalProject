@@ -19,6 +19,9 @@ public class Branch {
     @JoinColumn(name = "UserID")
     private User user;
 
+    @Column(name = "BranchName", length = 100)
+    private String branchName;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CountryID")
     private Country country;

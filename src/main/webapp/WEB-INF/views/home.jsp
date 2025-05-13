@@ -13,6 +13,7 @@
                 <div class="card-body">
                     <p class="card-text">Manage system users.</p>
                     <a href="/admin/users" class="btn btn-primary me-2">Manage Users</a>
+                    <a href="/admin/employees" class="btn btn-primary me-2">Manage Employees</a>
                 </div>
             </div>
         </c:when>

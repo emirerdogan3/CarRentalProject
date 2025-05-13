@@ -1,7 +1,11 @@
 package com.rentacarapp.rentacarsystem.controller.admin;
 
+import com.rentacarapp.rentacarsystem.dto.EmployeeDto;
+import com.rentacarapp.rentacarsystem.model.Branch;
+import com.rentacarapp.rentacarsystem.model.BranchEmployee;
 import com.rentacarapp.rentacarsystem.model.Employee;
 import com.rentacarapp.rentacarsystem.model.User;
+import com.rentacarapp.rentacarsystem.repository.BranchRepository;
 import com.rentacarapp.rentacarsystem.repository.UserRepository;
 import com.rentacarapp.rentacarsystem.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
@@ -19,14 +23,15 @@ public class AdminEmployeeController {
 
     private final EmployeeService employeeService;
     private final UserRepository userRepository;
-    //private final ClinicRepository clinicRepository;
-    //private final com.rentacarapp.rentacarsystem.repository.ClinicVeterinaryRepository clinicVeterinaryRepository;
-
+    private final BranchRepository branchRepository;
+    private final com.rentacarapp.rentacarsystem.repository.BranchEmployeesRepository branchEmployeesRepository;
+    private final com.rentacarapp.rentacarsystem.service.BranchService branchService;
 
     @GetMapping
     public String listEmployees(Model model) {
         model.addAttribute("employees", employeeService.getAllEmployees());
         model.addAttribute("users", userRepository.findByRoleRoleName("EMPLOYEE"));
+        //model.addAttribute("branches", branchRepository.findAll());
         return "admin/employees";
     }
 
@@ -91,28 +96,36 @@ public class AdminEmployeeController {
         return "redirect:/admin/employees";
     }
 
-    /**
+    @GetMapping("/admin/employees/create")
+    public String showCreateEmployeeForm(Model model) {
+        List<Branch> branches = branchService.getAllBranches();  // tüm branch'leri çek
+        model.addAttribute("branches", branches);                // JSP'ye gönder
+        model.addAttribute("employee", new EmployeeDto());       // form için boş DTO
+        return "admin/employee-form";                            // JSP sayfa adı
+    }
+
+
     @GetMapping("/{id}/assign-branch")
     public String assignBranchForm(@PathVariable Long id, Model model) {
         Employee employee = employeeService.getEmployeeEntityById(id);
-        List<Branchs> branchs = branchRepository.findAll();
+        List<Branch> branch = branchRepository.findAll();
         model.addAttribute("employee", employee);
-        model.addAttribute("branchs", branchs);
+        model.addAttribute("branches", branch);
         return "admin/assign_branch_to_emp";
     }
 
-    @PostMapping("/{id}/assign-clinic")
-    public String assignClinicToVet(@PathVariable Long id, @RequestParam Long clinicId) {
-        Veterinary veterinary = veterinaryService.getVeterinaryEntityById(id);
-        Clinic clinic = clinicRepository.findById(clinicId).orElseThrow();
+    @PostMapping("/{id}/assign-branch")
+    public String assignBranchToEmp(@PathVariable Long id, @RequestParam Long branchId) {
+        Employee employee = employeeService.getEmployeeEntityById(id);
+        Branch branch = branchRepository.findById(branchId).orElseThrow();
 
-        ClinicVeterinary cv = new ClinicVeterinary();
-        cv.setClinic(clinic);
-        cv.setVeterinary(veterinary);
+        BranchEmployee cv = new BranchEmployee();
+        cv.setBranch(branch);
+        cv.setEmployee(employee);
 
-        clinicVeterinaryRepository.save(cv);
-        return "redirect:/admin/veterinaries";
+        branchEmployeesRepository.save(cv);
+        return "redirect:/admin/employees";
     }
-    */
+
 
 }

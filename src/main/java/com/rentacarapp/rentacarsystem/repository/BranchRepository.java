@@ -1,4 +1,7 @@
 package com.rentacarapp.rentacarsystem.repository;
 
-public interface BranchRepository {
+import com.rentacarapp.rentacarsystem.model.Branch;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BranchRepository extends JpaRepository<Branch, Long> {
 }
