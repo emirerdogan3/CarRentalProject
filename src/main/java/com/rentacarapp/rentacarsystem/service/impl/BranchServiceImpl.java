@@ -45,8 +45,8 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public Branch updateBranch(BranchDto branchDto) {
-        Branch branch = branchRepository.findById(branchDto.getBranchId())
-                .orElseThrow(() -> new RuntimeException("Branch not found with ID: " + branchDto.getBranchId()));
+        Branch branch = branchRepository.findById(branchDto.getBranchID())
+                .orElseThrow(() -> new RuntimeException("Branch not found with ID: " + branchDto.getBranchID()));
 
         User user = userRepository.findById(branchDto.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));

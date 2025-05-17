@@ -68,7 +68,7 @@ public class AdminEmployeeController {
     @GetMapping("/edit/{id}")
     public String editEmployeeForm(@PathVariable Long id, Model model) {
         Employee employee = employeeService.getEmployeeEntityById(id);
-        model.addAttribute("employees", employee);
+        model.addAttribute("employee", employee);
         model.addAttribute("users", userRepository.findByRoleRoleName("EMPLOYEE"));
         return "admin/edit_employee";
     }
@@ -115,9 +115,9 @@ public class AdminEmployeeController {
     }
 
     @PostMapping("/{id}/assign-branch")
-    public String assignBranchToEmp(@PathVariable Long id, @RequestParam Long branchId) {
+    public String assignBranchToEmp(@PathVariable Long id, @RequestParam Long branchID) {
         Employee employee = employeeService.getEmployeeEntityById(id);
-        Branch branch = branchRepository.findById(branchId).orElseThrow();
+        Branch branch = branchRepository.findById(branchID).orElseThrow();
 
         BranchEmployee cv = new BranchEmployee();
         cv.setBranch(branch);

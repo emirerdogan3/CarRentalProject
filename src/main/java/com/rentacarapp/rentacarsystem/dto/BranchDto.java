@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class BranchDto {
-    private Long branchId;
+    private Long branchID;
 
     private Long userId;
 
