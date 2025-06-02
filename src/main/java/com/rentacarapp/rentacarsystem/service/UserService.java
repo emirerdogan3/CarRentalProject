@@ -1,6 +1,6 @@
 package com.rentacarapp.rentacarsystem.service;
 
-import com.rentacarapp.rentacarsystem.model.User;
+import com.rentacarapp.rentacarsystem.entity.User;
 
 import java.util.List;
 

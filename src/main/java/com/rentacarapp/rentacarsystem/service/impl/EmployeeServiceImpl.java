@@ -1,8 +1,8 @@
 package com.rentacarapp.rentacarsystem.service.impl;
 
 import com.rentacarapp.rentacarsystem.dto.EmployeeDto;
-import com.rentacarapp.rentacarsystem.model.Employee;
-import com.rentacarapp.rentacarsystem.model.User;
+import com.rentacarapp.rentacarsystem.entity.Employee;
+import com.rentacarapp.rentacarsystem.entity.User;
 import com.rentacarapp.rentacarsystem.repository.EmployeeRepository;
 import com.rentacarapp.rentacarsystem.repository.UserRepository;
 import com.rentacarapp.rentacarsystem.service.EmployeeService;

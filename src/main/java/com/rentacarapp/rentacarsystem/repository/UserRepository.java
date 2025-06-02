@@ -1,6 +1,6 @@
 package com.rentacarapp.rentacarsystem.repository;
 
-import com.rentacarapp.rentacarsystem.model.User;
+import com.rentacarapp.rentacarsystem.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

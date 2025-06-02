@@ -1,10 +1,10 @@
 package com.rentacarapp.rentacarsystem.controller.admin;
 
 import com.rentacarapp.rentacarsystem.dto.EmployeeDto;
-import com.rentacarapp.rentacarsystem.model.Branch;
-import com.rentacarapp.rentacarsystem.model.BranchEmployee;
-import com.rentacarapp.rentacarsystem.model.Employee;
-import com.rentacarapp.rentacarsystem.model.User;
+import com.rentacarapp.rentacarsystem.entity.Branch;
+import com.rentacarapp.rentacarsystem.entity.BranchEmployee;
+import com.rentacarapp.rentacarsystem.entity.Employee;
+import com.rentacarapp.rentacarsystem.entity.User;
 import com.rentacarapp.rentacarsystem.repository.BranchRepository;
 import com.rentacarapp.rentacarsystem.repository.UserRepository;
 import com.rentacarapp.rentacarsystem.service.EmployeeService;

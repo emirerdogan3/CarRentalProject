@@ -1,6 +1,6 @@
 package com.rentacarapp.rentacarsystem.service.impl;
 
-import com.rentacarapp.rentacarsystem.model.User;
+import com.rentacarapp.rentacarsystem.entity.User;
 import com.rentacarapp.rentacarsystem.repository.UserRepository;
 import com.rentacarapp.rentacarsystem.service.UserService;
 import org.springframework.stereotype.Service;

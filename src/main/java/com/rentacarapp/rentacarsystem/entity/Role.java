@@ -1,22 +1,20 @@
-package com.rentacarapp.rentacarsystem.model;
+package com.rentacarapp.rentacarsystem.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "Roles")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Role {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int roleID;
+    @Column(name = "RoleID")
+    private Integer roleID;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "RoleName", nullable = false, length = 50)
     private String roleName;
 }
-

@@ -1,7 +1,7 @@
 package com.rentacarapp.rentacarsystem.service;
 
 import com.rentacarapp.rentacarsystem.dto.EmployeeDto;
-import com.rentacarapp.rentacarsystem.model.Employee;
+import com.rentacarapp.rentacarsystem.entity.Employee;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

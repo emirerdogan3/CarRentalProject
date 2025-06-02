@@ -1,6 +1,6 @@
 package com.rentacarapp.rentacarsystem.controller;
 
-import com.rentacarapp.rentacarsystem.model.User;
+import com.rentacarapp.rentacarsystem.entity.User;
 import com.rentacarapp.rentacarsystem.service.UserService;
 import org.springframework.web.bind.annotation.*;
 

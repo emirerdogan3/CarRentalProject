@@ -1,4 +1,4 @@
-package com.rentacarapp.rentacarsystem.model;
+package com.rentacarapp.rentacarsystem.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,17 +8,16 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class County {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "CountyID")
-    private Long countyID;
+    private Integer countyID;
 
-    @Column(name = "CountyName", unique = true, length = 50)
+    @Column(unique = true, length = 50)
     private String countyName;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "CityID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cityID")
     private City city;
 }

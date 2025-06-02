@@ -1,6 +1,6 @@
 package com.rentacarapp.rentacarsystem.security;
 
-import com.rentacarapp.rentacarsystem.model.User;
+import com.rentacarapp.rentacarsystem.entity.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -30,7 +30,7 @@ public class CustomUserDetails implements UserDetails {
         return user.getUsername();
     }
 
-    public com.rentacarapp.rentacarsystem.model.Role getRole() {
+    public com.rentacarapp.rentacarsystem.entity.Role getRole() {
         return user.getRole();
     }
 

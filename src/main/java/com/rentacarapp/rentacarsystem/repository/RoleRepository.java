@@ -1,6 +1,6 @@
 package com.rentacarapp.rentacarsystem.repository;
 
-import com.rentacarapp.rentacarsystem.model.Role;
+import com.rentacarapp.rentacarsystem.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

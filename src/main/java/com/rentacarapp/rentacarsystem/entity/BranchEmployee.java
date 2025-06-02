@@ -1,4 +1,4 @@
-package com.rentacarapp.rentacarsystem.model;
+package com.rentacarapp.rentacarsystem.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

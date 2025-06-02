@@ -1,7 +1,7 @@
 package com.rentacarapp.rentacarsystem.service;
 
 import com.rentacarapp.rentacarsystem.dto.BranchDto;
-import com.rentacarapp.rentacarsystem.model.Branch;
+import com.rentacarapp.rentacarsystem.entity.Branch;
 
 import java.util.List;
 

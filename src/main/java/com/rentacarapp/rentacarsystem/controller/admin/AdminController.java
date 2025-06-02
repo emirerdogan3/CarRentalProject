@@ -1,7 +1,7 @@
 package com.rentacarapp.rentacarsystem.controller.admin;
 
-import com.rentacarapp.rentacarsystem.model.Role;
-import com.rentacarapp.rentacarsystem.model.User;
+import com.rentacarapp.rentacarsystem.entity.Role;
+import com.rentacarapp.rentacarsystem.entity.User;
 import com.rentacarapp.rentacarsystem.repository.RoleRepository;
 import com.rentacarapp.rentacarsystem.service.UserService;
 import lombok.RequiredArgsConstructor;
