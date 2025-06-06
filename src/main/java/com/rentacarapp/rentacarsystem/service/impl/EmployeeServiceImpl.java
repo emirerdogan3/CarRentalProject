@@ -1,6 +1,6 @@
 package com.rentacarapp.rentacarsystem.service.impl;
 
-import com.rentacarapp.rentacarsystem.dto.EmployeeDto;
+import com.rentacarapp.rentacarsystem.dto.EmployeeDTO;
 import com.rentacarapp.rentacarsystem.entity.Employee;
 import com.rentacarapp.rentacarsystem.entity.User;
 import com.rentacarapp.rentacarsystem.repository.EmployeeRepository;
@@ -28,7 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeDto createEmployee(EmployeeDto employeeDto) {
+    public EmployeeDTO createEmployee(EmployeeDTO employeeDto) {
         User user = userRepository.findByUsername(employeeDto.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found!"));
 
@@ -37,22 +37,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Employee savedEmployee = employeeRepository.save(employee);
 
-        return modelMapper.map(savedEmployee, EmployeeDto.class);
+        return modelMapper.map(savedEmployee, EmployeeDTO.class);
     }
 
     @Override
-    public EmployeeDto getEmployeeById(Long id) {
+    public EmployeeDTO getEmployeeById(Long id) {
         Employee employee = employeeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Employee not found!"));
-        return modelMapper.map(employee, EmployeeDto.class);
+        return modelMapper.map(employee, EmployeeDTO.class);
     }
 
     //  Employee listelemede branch usernamei görünmesi için yapılan değişiklikten önceki hali
     @Override
-    public List<EmployeeDto> getAllEmployees() {
+    public List<EmployeeDTO> getAllEmployees() {
         return employeeRepository.findAll().stream()
                 .map(vet -> {
-                    EmployeeDto dto = modelMapper.map(vet, EmployeeDto.class);
+                    EmployeeDTO dto = modelMapper.map(vet, EmployeeDTO.class);
                     dto.setUsername(vet.getUser().getUsername());
                     return dto;
                 })
@@ -86,7 +86,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
     @Override
-    public EmployeeDto updateEmployee(Long id, EmployeeDto employeeDto) {
+    public EmployeeDTO updateEmployee(Long id, EmployeeDTO employeeDto) {
         return null;
     }
 

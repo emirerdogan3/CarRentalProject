@@ -1,6 +1,6 @@
 package com.rentacarapp.rentacarsystem.controller.admin;
 
-import com.rentacarapp.rentacarsystem.dto.EmployeeDto;
+import com.rentacarapp.rentacarsystem.dto.EmployeeDTO;
 import com.rentacarapp.rentacarsystem.entity.Branch;
 import com.rentacarapp.rentacarsystem.entity.BranchEmployee;
 import com.rentacarapp.rentacarsystem.entity.Employee;
@@ -100,7 +100,7 @@ public class AdminEmployeeController {
     public String showCreateEmployeeForm(Model model) {
         List<Branch> branches = branchService.getAllBranches();  // tüm branch'leri çek
         model.addAttribute("branches", branches);                // JSP'ye gönder
-        model.addAttribute("employee", new EmployeeDto());       // form için boş DTO
+        model.addAttribute("employee", new EmployeeDTO());       // form için boş DTO
         return "admin/employee-form";                            // JSP sayfa adı
     }
 

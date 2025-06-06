@@ -1,29 +1,16 @@
 package com.rentacarapp.rentacarsystem.service;
 
-import com.rentacarapp.rentacarsystem.dto.EmployeeDto;
-import com.rentacarapp.rentacarsystem.entity.Employee;
-import org.springframework.http.ResponseEntity;
-
+import com.rentacarapp.rentacarsystem.dto.EmployeeDTO;
+// import com.rentacar.entity.User; // No longer directly used if UserDetails is preferred
+import org.springframework.security.core.userdetails.UserDetails; // Added
 import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeService {
-
-    // Admin tarafının kontrolleri (Cenkin VeterinaryService kısmından alındı)
-    Employee createEmployeeFromEntity(Employee employee);
-    Employee getEmployeeEntityById(Long id);
-    Employee updateEmployeeEntity(Employee employee);
-    List<Employee> getAllEmployeeEntities();
-
-    // Benim VeterinaryService için yaptığım kısımlar
-    EmployeeDto createEmployee(EmployeeDto employeeDto);
-    EmployeeDto getEmployeeById(Long id);
-    List<EmployeeDto> getAllEmployees();
-    EmployeeDto updateEmployee(Long id, EmployeeDto employeeDto);
-    void deleteEmployee(Long id);
-
-
-    // Login işlemi
-    ResponseEntity<?> login(String username, String password);
-
-
+    EmployeeDTO createEmployee(EmployeeDTO employeeDTO, UserDetails currentUserDetails);
+    EmployeeDTO updateEmployee(Integer employeeId, EmployeeDTO employeeDTO, UserDetails currentUserDetails);
+    void deleteEmployee(Integer id);
+    Optional<EmployeeDTO> getEmployeeById(Integer id);
+    List<EmployeeDTO> getEmployeesByBranch(Integer branchId);
+    List<EmployeeDTO> getAllEmployees();
 }

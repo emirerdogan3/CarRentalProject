@@ -1,6 +1,5 @@
 package com.rentacarapp.rentacarsystem.service.impl;
 
-import com.rentacarapp.rentacarsystem.dto.BranchDto;
 import com.rentacarapp.rentacarsystem.entity.Branch;
 import com.rentacarapp.rentacarsystem.entity.User;
 import com.rentacarapp.rentacarsystem.repository.BranchRepository;
